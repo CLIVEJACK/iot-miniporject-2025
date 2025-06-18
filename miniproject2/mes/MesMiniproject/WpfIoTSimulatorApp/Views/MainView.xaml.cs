@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+using WpfIoTSimulatorApp.ViewModels;
 
 namespace WpfIoTSimulatorApp.Views
 {
@@ -12,13 +13,19 @@ namespace WpfIoTSimulatorApp.Views
     /// </summary>
     public partial class MainView : MetroWindow
     {
+        private readonly MainViewModel _viewModel;
+
         public MainView()
         {
             InitializeComponent();
-        }
 
-        //Timer timer = new Timer();
-        Stopwatch sw = new Stopwatch();
+            // ViewModel, View 연결
+            _viewModel = new MainViewModel();
+            DataContext = _viewModel;
+
+            _viewModel.StartHmiRequested += StartHmiAni;
+
+        }
 
         private void BtnTest_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -28,13 +35,16 @@ namespace WpfIoTSimulatorApp.Views
         // wpf상의 객체 애니메이션 추가
         private void StartHmiAni()
         {
+
             Product.Fill = new SolidColorBrush(Colors.Gray);    // 제품을 회색으로 칠함
 
             // 기어 애니메이션
-            DoubleAnimation ga = new DoubleAnimation();
-            ga.From = 0;
-            ga.To = 360;    // 360도 회전
-            ga.Duration = TimeSpan.FromSeconds(5);  // 기획 로드타임(Schedules의 LoadTime 값이 들어가야함)
+            DoubleAnimation ga = new DoubleAnimation
+            {
+                From = 0,
+                To = 360,    // 360도 회전
+                Duration = TimeSpan.FromSeconds(5),  // 기획 로드타임(Schedules의 LoadTime 값이 들어가야함)
+            };
 
             RotateTransform rt = new RotateTransform();
             GearStart.RenderTransform = rt;
