@@ -177,7 +177,7 @@ namespace WpfMrpSimulatorApp.ViewModels
             IsUpdate = false;
 
             CanSave = true;
-            CanRemove = false;  // 이게 없으면 수정후 신규를 눌러도 활성화 되어 있음. 250623 12:31 수정
+            CanRemove = false;  // 이게 없으면 수정후 신규를 눌러도 활성화 되어 있음. 250623 12:31 hugo 수정
         }
 
         #region View 버튼클릭 메서드
