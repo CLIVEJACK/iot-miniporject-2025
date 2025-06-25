@@ -127,7 +127,18 @@ ERD
     - Microsoft.EntityFrameworkCore
     - Microsoft.EntityFrameworkCoreTool
     - Pomelo.EntityFrameworkCore
+12. SchedyleViewModel EntityFramework DB연동 처리
+    
+    <img src="../image/mp0006.png" width="600">
 
+13. MonitoringView, MonitoringViewModel 생성
+14. WpfIotSimulatorApp 화면 이전
+15. Monitoring DB연동, MQTT통신, 애니메이션 작업
+16. MQTT로 전송된 공정 성공/실패여부 DB저장작업
+
+17. ReportView, ReportViewModel 작업
+
+#### 파이썬 AI + ASP.NET 연동(나중에)
 
 #### 파이썬 AI + ASP.NET 연동
 - 참조소스
