@@ -82,7 +82,7 @@
 
                 <ComboBox Grid.Row="1" Margin="2"
                           mah:TextBoxHelper.AutoWatermark="True" 
-                          mah:TextBoxHelper.Watermark="플랜트코드" 
+                          mah:TextBoxHelper.Watermark="플랜트코드"
                           ItemsSource="{Binding PlantCodes}"
                           DisplayMemberPath="CodeName" SelectedValuePath="BasicCode"
                           SelectedValue="{Binding SelectedSchedule.PlantCode}"/>
@@ -91,9 +91,9 @@
                     <DatePicker Margin="2" Width="145"
                                 mah:TextBoxHelper.AutoWatermark="True" 
                                 mah:TextBoxHelper.Watermark="계획일자"
-                                SelectedDateFormat="Short"
-                                SelectedDate="{Binding SelectedSchedule.SchDate,
-                                                Converter={StaticResource DateOnlyToDateTimeConverter}}"/>
+                                SelectedDateFormat="Short"                                
+                                SelectedDate="{Binding SelectedSchedule.SchDate, Mode=TwoWay, 
+                                                Converter={StaticResource DateOnlyToDateTimeConverter}}" />
 
                     <mah:NumericUpDown Margin="2" Width="145"
                                         mah:TextBoxHelper.AutoWatermark="True" 
@@ -104,26 +104,26 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="3" Margin="0" Orientation="Horizontal">
+                    <ComboBox Margin="2" Width="145" 
+                              mah:TextBoxHelper.AutoWatermark="True" 
+                              mah:TextBoxHelper.Watermark="시작시간"
+                              ItemsSource="{Binding TimeOptions}"
+                              DisplayMemberPath="Display" SelectedValuePath="Time"
+                              SelectedValue="{Binding SelectedSchedule.SchStartTime}" />
                     <ComboBox Margin="2" Width="145"
-                                    mah:TextBoxHelper.AutoWatermark="True" 
-                                    mah:TextBoxHelper.Watermark="시작시간"  
-                                    ItemsSource="{Binding TimeOptions}"
-                                    DisplayMemberPath="Display" SelectedValuePath="Time"
-                                    SelectedValue="{Binding SelectedSchedule.SchStartTime}" />
-                    <ComboBox Margin="2" Width="145"
-                                    mah:TextBoxHelper.AutoWatermark="True" 
-                                    mah:TextBoxHelper.Watermark="종료시간" 
-                                    ItemsSource="{Binding TimeOptions}"
-                                    DisplayMemberPath="Display" SelectedValuePath="Time"
-                                    SelectedValue="{Binding SelectedSchedule.SchEndTime}" />
+                              mah:TextBoxHelper.AutoWatermark="True" 
+                              mah:TextBoxHelper.Watermark="종료시간" 
+                              ItemsSource="{Binding TimeOptions}"
+                              DisplayMemberPath="Display" SelectedValuePath="Time"
+                              SelectedValue="{Binding SelectedSchedule.SchEndTime}" />
                 </StackPanel>
 
                 <ComboBox Grid.Row="4" Margin="2" 
                           mah:TextBoxHelper.AutoWatermark="True"
-                          mah:TextBoxHelper.Watermark="설비코드" 
+                          mah:TextBoxHelper.Watermark="설비코드"
                           ItemsSource="{Binding FacilityIds}"
                           DisplayMemberPath="CodeName" SelectedValuePath="BasicCode"
-                          SelectedValue="{Binding SelectedSchedule.SchFacilityId}" />
+                          SelectedValue="{Binding SelectedSchedule.SchFacilityId}"/>
 
                 <mah:NumericUpDown Grid.Row="5" Margin="2"
                                     mah:TextBoxHelper.AutoWatermark="True" 
